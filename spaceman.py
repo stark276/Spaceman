@@ -58,7 +58,7 @@ def get_guessed_word(secret_word, letters_guessed):
         if letter in letters_guessed:
              sec_word += letter
         else:
-            sec_word += "_"
+            sec_word += "*"
     return sec_word        ###UNDERSTAND
     
     #pass
@@ -79,7 +79,7 @@ def is_guess_in_word(guess, secret_word):
     else:
         return False
 
-    pass
+    # pass
 
 
 
@@ -122,11 +122,11 @@ def spaceman(secret_word):
 
         if is_guess_in_word(guess, secret_word) == True:
             print("Correct, Bingo!")
-        else:
-            print("Incorrect")    
+        else:   
             tries -= 1
+            print("Incorrect") 
 
-        print("Letters guess so far: ", letters_guessed)
+        print("Letters guessed already: ", letters_guessed)
 
         alphabet.remove(guess)
          
@@ -134,9 +134,9 @@ def spaceman(secret_word):
         print("Remaining tries:", tries)
         if is_word_guessed(secret_word, letters_guessed) == True:
             return print("Congratulations!You just won 10000000$!")
-        else:
-            print("You lost, try again later!")
-            
+        if tries == 0:
+            print("You just lost 1000000$, try again!")
+        
 
 
 
@@ -144,7 +144,13 @@ def spaceman(secret_word):
     #3TODO: Check if the guessed letter is in the secret or not and give the player feedback
     #4TODO: show the guessed word so far
     #5TODO: check if the game has been won or lost
-
+ 
 #These function calls that will start the game
 secret_word = load_word()
 spaceman(secret_word)
+answer = input('Would you like to play again Y/N: ')
+
+while answer == 'Y' or answer == 'y':
+    secret_word = load_word()
+    spaceman(secret_word)
+    answer = input('Would you like to play again Y/N: ')
