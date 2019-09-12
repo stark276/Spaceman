@@ -100,7 +100,7 @@ def spaceman(secret_word):
     while tries > 0:
 
         print("-------------------------")
-        print(secret_word)
+        # print(secret_word) --TESTING--
    
         guess = input("Enter your letter: ")
         
@@ -134,16 +134,7 @@ def spaceman(secret_word):
             return print("Congratulations!You just won 10000000$!")
         if tries == 0:
             print("You just lost 1000000$, try again!")
-        
-
-
-
     
-    #3TODO: Check if the guessed letter is in the secret or not and give the player feedback
-    #4TODO: show the guessed word so far
-    #5TODO: check if the game has been won or lost
- 
-#These function calls that will start the game
 secret_word = load_word()
 spaceman(secret_word)
 answer = input('Would you like to play again Y/N: ')
