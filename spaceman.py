@@ -1,7 +1,5 @@
 import random
 
-
-
 def load_word():
     '''
     A function that reads a text file of words and randomly selects one to use as the secret word
